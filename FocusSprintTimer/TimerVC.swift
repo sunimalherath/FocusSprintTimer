@@ -8,13 +8,21 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class TimerVC: UIViewController {
 
+    @IBOutlet weak var hourLbl: UILabel!
+    @IBOutlet weak var minutesLbl: UILabel!
+    @IBOutlet weak var secondsLbl: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
 
-
+    @IBAction func startBtnPressed(_ sender: Any) {
+    }
+    
+    @IBAction func stopBtnPressed(_ sender: Any) {
+    }    
 }
 
