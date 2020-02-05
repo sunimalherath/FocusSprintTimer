@@ -29,7 +29,7 @@ class TimerVC: UIViewController {
     }
 
     @IBAction func startBtnPressed(_ sender: Any) {
-        timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(runTimer), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(runTimer), userInfo: nil, repeats: true)
     }
     
     @IBAction func stopBtnPressed(_ sender: Any) {
