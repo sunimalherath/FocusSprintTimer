@@ -14,10 +14,9 @@ class TimerVC: UIViewController {
     @IBOutlet weak var minutesLbl: UILabel!
     @IBOutlet weak var secondsLbl: UILabel!
     
-    // variables to capture how much time left
-    var secondsLeft: Int = 60
-    var minutesLeft: Int = 30
-    var hoursLeft: Int = 1
+    // variables to capture time left and to update labels. For now time fixed for 90 mins.
+    var totalSecondsLeft: Int = 5400
+    var timeArray: [String] = ["01","30", "00"]
     
     var timer: Timer?
     
@@ -29,7 +28,7 @@ class TimerVC: UIViewController {
     }
 
     @IBAction func startBtnPressed(_ sender: Any) {
-        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(runTimer), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(runTimer), userInfo: nil, repeats: true)
     }
     
     @IBAction func stopBtnPressed(_ sender: Any) {
@@ -38,33 +37,42 @@ class TimerVC: UIViewController {
     
     // function to calculate timing
     @objc func runTimer(){
-        secondsLeft -= 1
-        secondsLbl.text = String(secondsLeft)
+        totalSecondsLeft -= 1
         
-        if secondsLeft < 10 {
-            secondsLbl.text = "0\(secondsLeft)"
-        }
-        
-        if secondsLeft == 0 {
-            secondsLeft = 60
-            minutesLeft -= 1
-            minutesLbl.text = String(minutesLeft)
-        }
-        
-        if minutesLeft < 10 {
-            minutesLbl.text = "0\(minutesLeft)"
-        }
-        
-        if hoursLeft == 0 && minutesLeft == 0 {
-            // time ends
+        if totalSecondsLeft == 0 {
             timer?.invalidate()
         }
+        getHourMinutesAndSeconds(timeLeft: totalSecondsLeft)
         
-        if minutesLeft == 0 {
-            hoursLeft = 0
-            hourLbl.text = "00"
-            minutesLeft = 60
-            secondsLeft = 60
+        // update time values from the time array
+        hourLbl.text = timeArray[0]
+        minutesLbl.text = timeArray[1]
+        secondsLbl.text = timeArray[2]
+    }
+    
+    private func getHourMinutesAndSeconds(timeLeft: Int) {
+        
+        let hoursLeft = Int(timeLeft/3600)
+        if hoursLeft < 10 {
+            timeArray[0] = "0\(String(hoursLeft))"
+        } else {
+            timeArray[0] = String(hoursLeft)
+        }
+        
+        
+        let remainingMins = timeLeft%3600 // 1799
+        let mintsLeft = Int(remainingMins/60) // 29
+        if mintsLeft < 10 {
+            timeArray[1] = "0\(String(mintsLeft))"
+        } else {
+            timeArray[1] = String(mintsLeft)
+        }
+        
+        let secondsLeft = remainingMins%60
+        if secondsLeft < 10 {
+            timeArray[2] = "0\(String(secondsLeft))"
+        } else {
+            timeArray[2] = String(secondsLeft)
         }
     }
     
