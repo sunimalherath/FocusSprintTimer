@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina5_9" orientation="landscape" appearance="light"/>
+    <device id="retina4_7" orientation="landscape" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,11 +12,14 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="TimerVC" customModule="FocusSprintTimer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mountain" translatesAutoresizingMaskIntoConstraints="NO" id="IcG-ap-lpe">
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="53" translatesAutoresizingMaskIntoConstraints="NO" id="wW0-vT-6qr">
-                                <rect key="frame" x="294.66666666666669" y="167" width="223.00000000000006" height="41"/>
+                                <rect key="frame" x="222" y="167" width="223" height="41"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OF9-fN-RZA">
                                         <rect key="frame" x="0.0" y="0.0" width="39" height="41"/>
@@ -39,13 +42,13 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 hour 30 mins" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fR4-Kk-KH9">
-                                <rect key="frame" x="294.66666666666669" y="126.66666666666667" width="116.66666666666669" height="23.333333333333329"/>
+                                <rect key="frame" x="222" y="126.5" width="116.5" height="23.5"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="56" translatesAutoresizingMaskIntoConstraints="NO" id="S81-MH-uBL">
-                                <rect key="frame" x="345" y="216" width="122" height="30"/>
+                                <rect key="frame" x="272.5" y="216" width="122" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="11X-Z6-UYb">
                                         <rect key="frame" x="0.0" y="0.0" width="34" height="30"/>
@@ -70,8 +73,12 @@
                             <constraint firstItem="fR4-Kk-KH9" firstAttribute="leading" secondItem="wW0-vT-6qr" secondAttribute="leading" id="Aaz-NF-FGJ"/>
                             <constraint firstItem="wW0-vT-6qr" firstAttribute="top" secondItem="fR4-Kk-KH9" secondAttribute="bottom" constant="17" id="HnC-Hj-9fs"/>
                             <constraint firstItem="S81-MH-uBL" firstAttribute="top" secondItem="wW0-vT-6qr" secondAttribute="bottom" constant="8" id="VsK-Rk-lhh"/>
+                            <constraint firstItem="IcG-ap-lpe" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Za3-k9-cEy"/>
+                            <constraint firstItem="IcG-ap-lpe" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="ffB-nh-Vs8"/>
                             <constraint firstItem="wW0-vT-6qr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gq0-I1-OvK"/>
                             <constraint firstItem="S81-MH-uBL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hRa-bh-HiQ"/>
+                            <constraint firstItem="IcG-ap-lpe" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="lfX-a6-xRl"/>
+                            <constraint firstItem="IcG-ap-lpe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="pQG-2a-1im"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -83,7 +90,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-8" y="-36"/>
+            <point key="canvasLocation" x="27.436281859070466" y="164"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="mountain" width="1280" height="632"/>
+    </resources>
 </document>
